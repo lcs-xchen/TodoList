@@ -27,22 +27,23 @@ struct LandingView: View {
             VStack {
                 
                 List {
-                        Label(
-                            title: {  Text("Study for Chemistry quiz") },
-                            icon: { Image(systemName: "circle") }
-                        )
-                    
-                    
-                    Label(
-                        title: {  Text("Finish Computer Science assignment") },
-                        icon: { Image(systemName: "circle") }
+                    ItemView(
+                        title: "Study for Chemistry quiz",
+                        done: false
                     )
                     
                     
-                    Label(
-                        title: {  Text("Go for a run around campus") },
-                        icon: { Image(systemName: "circle") }
+                    ItemView(
+                        title: "Finish Computer Science assignment",
+                        done: true
                     )
+                    
+                    
+                    ItemView(
+                        title: "Go for a run around campus",
+                        done: false
+                    )
+                    
                 }
                 .searchable(text: $searchText)
                 
@@ -57,7 +58,6 @@ struct LandingView: View {
                     .font(.caption)
                 }
                 .padding(20)
-                
             }
             .navigationBarTitle("To do")
         }
@@ -74,4 +74,24 @@ struct LandingView: View {
     
 #Preview {
     LandingView()
+}
+
+struct ItemView: View {
+    
+    let title: String
+    let done: Bool
+    
+    var body: some View {
+        Label(
+            title: {  Text(title) },
+            icon: {
+                if done == true{
+                    Image(systemName: "checkmark.circle")
+                }else {
+                    Image(systemName: "circle")
+                }
+                
+            }
+        )
+    }
 }
