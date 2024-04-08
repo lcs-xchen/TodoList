@@ -27,11 +27,22 @@ struct LandingView: View {
             VStack {
                 
                 List {
+                        Label(
+                            title: {  Text("Study for Chemistry quiz") },
+                            icon: { Image(systemName: "circle") }
+                        )
                     
-                    Text("Study for Chemistry quiz")
-                    Text("Finish Computer Science assignment")
-                    Text("Go for a run around campus")
-                   
+                    
+                    Label(
+                        title: {  Text("Finish Computer Science assignment") },
+                        icon: { Image(systemName: "circle") }
+                    )
+                    
+                    
+                    Label(
+                        title: {  Text("Go for a run around campus") },
+                        icon: { Image(systemName: "circle") }
+                    )
                 }
                 .searchable(text: $searchText)
                 
@@ -46,10 +57,12 @@ struct LandingView: View {
                     .font(.caption)
                 }
                 .padding(20)
+                
             }
             .navigationBarTitle("To do")
         }
     }
+    
     
     // MARK: Functions
     func add(){
