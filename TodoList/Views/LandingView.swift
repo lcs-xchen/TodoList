@@ -30,7 +30,7 @@ struct LandingView: View {
                 
                 List($todos) { $todo in
                     
-                    ItemView(currentItem: todo)
+                    ItemView(currentItem: $todo)
                     // Delte a to-do item
                         .swipeActions{
                             Button(
