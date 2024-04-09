@@ -14,11 +14,13 @@ struct LandingView: View {
     // The item currently being added
     @State var newItemDescription: String = ""
     
-    //The list of items the user has added so far
-    @State var itemsAdded: [String] = []
-    
     // The search text
     @State var searchText = ""
+    
+    // The list of to-do items
+    @State var todos: [TodoItem] = exampleItems
+    
+    
     
     // MARK: Computed properties
     var body: some View{
@@ -26,12 +28,10 @@ struct LandingView: View {
             
             VStack {
                 
-                List {
-                    ItemView(currentItem: firstItem)
-                    ItemView(currentItem: secondItem)
-                    ItemView(currentItem: thirdItem)
-    
+                List (todos) { todo in
                     
+                    ItemView(currentItem: todo)
+    
                 }
                 .searchable(text: $searchText)
                 
